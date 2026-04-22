@@ -1,0 +1,6 @@
+# Build artifacts generated from the .md/.svg sources.
+# Regenerate with pandoc + rsvg-convert + inkscape + sips.
+*.docx
+figures/*.png
+figures/*.tif
+figures/*.eps
