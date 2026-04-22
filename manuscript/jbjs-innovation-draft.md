@@ -54,7 +54,7 @@ Since deployment, the platform has hosted weekly journal club, weekly fracture c
 
 The core contribution of this innovation is not technical novelty — the architecture is intentionally ordinary — but *replicability at zero marginal cost* for a residency-scale didactic curriculum. Orthopaedic residency programs across the United States run structurally similar weekly curricula, and most coordinate them today with ad-hoc tools. A shared open-source substrate would let programs inherit each other's improvements, pool curricular artifacts (for example, the teaching-case repository, which grows more valuable with scale), and generate machine-readable records of didactic content suitable for future scholarly work.
 
-Planned next steps include (1) a formal evaluation of resident satisfaction and archive utilization across one full academic year; (2) a multi-institutional deployment with anonymized cross-program analytics on which papers are being taught at which programs; and (3) an integrated teaching-case dashboard that links repository entries to ACGME case logs where residents opt in. The repository is hosted publicly at [GITHUB URL] under a permissive open-source license; we invite other programs to fork it, adapt it, and contribute back.
+Planned next steps include (1) a formal evaluation of resident satisfaction and archive utilization across one full academic year; (2) a multi-institutional deployment with anonymized cross-program analytics on which papers are being taught at which programs; and (3) an integrated teaching-case dashboard that links repository entries to ACGME case logs where residents opt in. The repository is hosted publicly at https://github.com/grahamdekeyser/trauma-didactics under a permissive open-source license; we invite other programs to fork it, adapt it, and contribute back.
 
 ---
 
@@ -95,7 +95,7 @@ Planned next steps include (1) a formal evaluation of resident satisfaction and 
 - [ ] Figures produced as TIFF or EPS per JBJS Guidelines for Figures
 - [ ] Title page with full author details, degrees, affiliations, and corresponding author email
 - [ ] CRediT contributor roles assigned per author in Editorial Manager
-- [ ] Public GitHub repository URL inserted wherever `[GITHUB URL]` appears
+- [ ] Public GitHub repository URL inserted wherever `https://github.com/grahamdekeyser/trauma-didactics` appears
 - [ ] Optional appendix: any quantitative outcome data (resident satisfaction, archive usage) if collected before submission
 - [ ] Double-check that institution and author names do not appear in figure captions or figure images (double-blinded review; editorial office strips these from the title page and body)
 
