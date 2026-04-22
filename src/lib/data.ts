@@ -1,3 +1,4 @@
+import { todayIsoDateInAppTimezone } from "@/lib/dates";
 import { createClient } from "@/lib/supabase/server";
 import type {
   Paper,
@@ -56,7 +57,7 @@ function toSession(row: SessionRow): Session {
 }
 
 function today(): string {
-  return new Date().toISOString().slice(0, 10);
+  return todayIsoDateInAppTimezone();
 }
 
 export async function fetchUpcomingSessions(): Promise<Session[]> {

@@ -10,6 +10,7 @@ import {
   defaultSessionTitle,
   defaultWebexUrl,
   isNoBreakfastClubWeek,
+  todayInAppTimezone,
 } from "@/lib/dates";
 import type { Session, SessionType } from "@/lib/types";
 import { SESSION_TYPE_LABEL } from "@/lib/types";
@@ -35,7 +36,7 @@ const TYPE_LABEL_CLASS: Record<SessionType, string> = {
 };
 
 export function UpcomingCalendar({
-  today = new Date(),
+  today = todayInAppTimezone(),
   sessions,
   isAdmin = false,
 }: Props) {
