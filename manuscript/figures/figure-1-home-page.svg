@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" font-family="Helvetica, Arial, sans-serif" shape-rendering="geometricPrecision">
+  <style>
+    .title { font-size: 22px; font-weight: 700; fill: #111; }
+    .subtitle { font-size: 13px; font-weight: 400; fill: #555; font-style: italic; }
+    .app-header { font-size: 15px; font-weight: 700; fill: #111; }
+    .access-note { font-size: 11px; font-weight: 400; fill: #666; letter-spacing: 0.08em; }
+    .card-title { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+    .card-sub { font-size: 10px; font-weight: 400; fill: #777; }
+    .row-date { font-size: 10px; font-weight: 600; fill: #555; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .row-type-bc { font-size: 9px; font-weight: 700; fill: #92400e; letter-spacing: 0.1em; }
+    .row-type-fc { font-size: 9px; font-weight: 700; fill: #0369a1; letter-spacing: 0.1em; }
+    .row-type-an { font-size: 9px; font-weight: 700; fill: #047857; letter-spacing: 0.1em; }
+    .row-topic { font-size: 11px; font-weight: 500; fill: #222; }
+    .row-paper { font-size: 10px; font-weight: 400; fill: #666; font-style: italic; }
+    .week-label { font-size: 9px; font-weight: 600; fill: #888; letter-spacing: 0.1em; }
+    .list-item { font-size: 11px; font-weight: 400; fill: #333; }
+    .list-item-meta { font-size: 9px; font-weight: 400; fill: #888; }
+    .callout-num { font-size: 11px; font-weight: 700; fill: #fff; }
+    .callout-text { font-size: 12px; font-weight: 500; fill: #1f4e79; }
+    .callout-text-bold { font-size: 12px; font-weight: 700; fill: #1f4e79; }
+    .card { fill: #fff; stroke: #d6d6d6; stroke-width: 1; }
+    .card-header-rule { stroke: #e5e5e5; stroke-width: 1; }
+    .row-rule { stroke: #ececec; stroke-width: 1; }
+    .border-bc { stroke: #f59e0b; stroke-width: 3; }
+    .border-fc { stroke: #0ea5e9; stroke-width: 3; }
+    .border-an { stroke: #10b981; stroke-width: 3; }
+    .chrome { fill: #fafafa; stroke: #d6d6d6; stroke-width: 1; }
+    .chrome-line { stroke: #d6d6d6; stroke-width: 1; }
+    .leader { stroke: #1f4e79; stroke-width: 1.25; fill: none; }
+    .callout-dot { fill: #1f4e79; }
+    .vote-pill { fill: #f3f4f6; stroke: #d1d5db; stroke-width: 0.75; }
+    .vote-text { font-size: 9px; font-weight: 600; fill: #444; }
+  </style>
+
+  <!-- Title -->
+  <text x="600" y="34" text-anchor="middle" class="title">OHSU Orthopaedic Trauma Didactics: home page</text>
+  <text x="600" y="54" text-anchor="middle" class="subtitle">annotated layout of the single-page dashboard</text>
+
+  <!-- ===== App chrome (browser frame) ===== -->
+  <rect x="80" y="80" width="1040" height="760" rx="6" class="chrome"/>
+  <line x1="80" y1="112" x2="1120" y2="112" class="chrome-line"/>
+  <circle cx="100" cy="96" r="4" fill="#ef4444"/>
+  <circle cx="116" cy="96" r="4" fill="#f59e0b"/>
+  <circle cx="132" cy="96" r="4" fill="#10b981"/>
+  <rect x="160" y="88" width="700" height="16" rx="3" fill="#fff" stroke="#d6d6d6" stroke-width="1"/>
+  <text x="172" y="100" font-size="10" fill="#888">https://trauma-didactics.vercel.app</text>
+
+  <!-- App header (site header) -->
+  <rect x="80" y="112" width="1040" height="44" fill="#fff"/>
+  <line x1="80" y1="156" x2="1120" y2="156" class="chrome-line"/>
+  <text x="100" y="140" class="app-header">OHSU Orthopaedic Trauma Didactics</text>
+  <rect x="940" y="124" width="160" height="22" rx="11" fill="#fff" stroke="#d6d6d6" stroke-width="1"/>
+  <text x="1020" y="139" text-anchor="middle" font-size="10" fill="#555">dekeyser@ohsu.edu &#x25BE;</text>
+
+  <!-- ===== LEFT COLUMN (2/3): Upcoming Calendar + Topic Wish List ===== -->
+
+  <!-- Upcoming Calendar card -->
+  <rect x="100" y="176" width="640" height="370" rx="6" class="card"/>
+  <text x="120" y="200" class="card-title">Upcoming Calendar</text>
+  <text x="120" y="216" class="card-sub">Next 6 weeks — Wednesday / Thursday / Friday sessions</text>
+  <line x1="100" y1="230" x2="740" y2="230" class="card-header-rule"/>
+
+  <!-- Week 1 -->
+  <text x="120" y="250" class="week-label">WEEK OF APR 20, 2026</text>
+  <!-- BC row -->
+  <line x1="120" y1="258" x2="120" y2="280" class="border-bc"/>
+  <text x="134" y="272" class="row-date">WED 4/22</text>
+  <text x="200" y="272" class="row-type-bc">BREAKFAST CLUB</text>
+  <text x="320" y="272" class="row-topic">Geriatric hip fracture antibiotic prophylaxis</text>
+  <text x="656" y="272" font-size="10" fill="#1f4e79" font-weight="600">Webex &#8599;</text>
+  <!-- BC paper -->
+  <text x="320" y="286" class="row-paper">· Johnson et al. JBJS 2025 · 2 papers</text>
+  <!-- FC row -->
+  <line x1="120" y1="294" x2="120" y2="316" class="border-fc"/>
+  <text x="134" y="308" class="row-date">THU 4/23</text>
+  <text x="200" y="308" class="row-type-fc">FRACTURE CONF</text>
+  <text x="320" y="308" class="row-topic">Fracture Conference</text>
+  <text x="656" y="308" font-size="10" fill="#1f4e79" font-weight="600">Webex &#8599;</text>
+  <!-- AN row -->
+  <line x1="120" y1="322" x2="120" y2="344" class="border-an"/>
+  <text x="134" y="336" class="row-date">FRI 4/24</text>
+  <text x="200" y="336" class="row-type-an">ANATOMY</text>
+  <text x="320" y="336" class="row-topic">Anatomy Session</text>
+  <line x1="120" y1="354" x2="720" y2="354" class="row-rule"/>
+
+  <!-- Week 2 -->
+  <text x="120" y="372" class="week-label">WEEK OF APR 27, 2026</text>
+  <line x1="120" y1="380" x2="120" y2="402" class="border-bc"/>
+  <text x="134" y="394" class="row-date">WED 4/29</text>
+  <text x="200" y="394" class="row-type-bc">BREAKFAST CLUB</text>
+  <text x="320" y="394" class="row-topic">Distal radius fixation: volar vs. bridge plate</text>
+  <text x="656" y="394" font-size="10" fill="#1f4e79" font-weight="600">Webex &#8599;</text>
+  <text x="320" y="408" class="row-paper">· Martinez et al. JOT 2024 · 1 paper</text>
+  <line x1="120" y1="416" x2="120" y2="438" class="border-fc"/>
+  <text x="134" y="430" class="row-date">THU 4/30</text>
+  <text x="200" y="430" class="row-type-fc">FRACTURE CONF</text>
+  <text x="320" y="430" class="row-topic">Fracture Conference</text>
+  <text x="656" y="430" font-size="10" fill="#1f4e79" font-weight="600">Webex &#8599;</text>
+  <line x1="120" y1="444" x2="120" y2="466" class="border-an"/>
+  <text x="134" y="458" class="row-date">FRI 5/1</text>
+  <text x="200" y="458" class="row-type-an">ANATOMY</text>
+  <text x="320" y="458" class="row-topic">Anatomy Session</text>
+  <line x1="120" y1="476" x2="720" y2="476" class="row-rule"/>
+
+  <!-- Week 3 (partial) -->
+  <text x="120" y="494" class="week-label">WEEK OF MAY 4, 2026</text>
+  <line x1="120" y1="502" x2="120" y2="524" class="border-bc"/>
+  <text x="134" y="516" class="row-date">WED 5/6</text>
+  <text x="200" y="516" class="row-type-bc">BREAKFAST CLUB</text>
+  <text x="320" y="516" class="row-topic" fill="#888" font-style="italic">Faculty Meeting — No Breakfast Club</text>
+
+  <!-- Topic Wish List card -->
+  <rect x="100" y="562" width="640" height="258" rx="6" class="card"/>
+  <text x="120" y="586" class="card-title">Topic Wish List</text>
+  <text x="120" y="602" class="card-sub">Resident-submitted topics residents want covered</text>
+  <line x1="100" y1="616" x2="740" y2="616" class="card-header-rule"/>
+  <!-- items -->
+  <rect x="120" y="628" width="42" height="18" rx="9" class="vote-pill"/>
+  <text x="141" y="641" text-anchor="middle" class="vote-text">&#9650; 12</text>
+  <text x="176" y="641" class="list-item">Management of Vancouver B2 periprosthetic femur fractures</text>
+  <text x="176" y="654" class="list-item-meta">submitted by PGY-3</text>
+  <line x1="120" y1="666" x2="720" y2="666" class="row-rule"/>
+  <rect x="120" y="676" width="42" height="18" rx="9" class="vote-pill"/>
+  <text x="141" y="689" text-anchor="middle" class="vote-text">&#9650; 9</text>
+  <text x="176" y="689" class="list-item">Timing of fixation in polytrauma — damage control vs. early total care</text>
+  <text x="176" y="702" class="list-item-meta">submitted by PGY-4</text>
+  <line x1="120" y1="714" x2="720" y2="714" class="row-rule"/>
+  <rect x="120" y="724" width="42" height="18" rx="9" class="vote-pill"/>
+  <text x="141" y="737" text-anchor="middle" class="vote-text">&#9650; 7</text>
+  <text x="176" y="737" class="list-item">Cephalomedullary nail vs. sliding hip screw for intertrochanteric fx</text>
+  <text x="176" y="750" class="list-item-meta">submitted by PGY-2</text>
+  <line x1="120" y1="762" x2="720" y2="762" class="row-rule"/>
+  <rect x="120" y="772" width="42" height="18" rx="9" class="vote-pill"/>
+  <text x="141" y="785" text-anchor="middle" class="vote-text">&#9650; 5</text>
+  <text x="176" y="785" class="list-item">Syndesmotic fixation: screws vs. suture button</text>
+  <text x="176" y="798" class="list-item-meta">submitted by faculty</text>
+
+  <!-- ===== RIGHT COLUMN (1/3): Past Archive, Teaching Cases, Research Ideas, Resources, Webinars ===== -->
+
+  <!-- Past Breakfast Clubs -->
+  <rect x="760" y="176" width="340" height="166" rx="6" class="card"/>
+  <text x="780" y="200" class="card-title">Past Breakfast Clubs</text>
+  <text x="780" y="216" class="card-sub">Searchable archive · every paper discussed</text>
+  <line x1="760" y1="230" x2="1100" y2="230" class="card-header-rule"/>
+  <rect x="780" y="242" width="300" height="20" rx="4" fill="#fff" stroke="#d6d6d6" stroke-width="1"/>
+  <text x="790" y="256" font-size="10" fill="#aaa">&#128269;  Search title, author, year…</text>
+  <text x="780" y="280" class="list-item">Apr 10 · Open tibia infection rates</text>
+  <text x="780" y="282" class="list-item-meta" dy="12">O'Hara et al., JOT 2024 · PDF</text>
+  <line x1="780" y1="302" x2="1080" y2="302" class="row-rule"/>
+  <text x="780" y="316" class="list-item">Apr 3 · Pelvic ring REBOA</text>
+  <text x="780" y="318" class="list-item-meta" dy="12">Nishida et al., JBJS 2023 · PDF</text>
+
+  <!-- Teaching Case Repository -->
+  <rect x="760" y="358" width="340" height="130" rx="6" class="card"/>
+  <text x="780" y="382" class="card-title">Teaching Case Repository</text>
+  <text x="780" y="398" class="card-sub">Log interesting call cases by AO/OTA type</text>
+  <line x1="760" y1="412" x2="1100" y2="412" class="card-header-rule"/>
+  <text x="780" y="432" class="list-item">247 cases logged · 34 by PGY-3s</text>
+  <rect x="780" y="446" width="130" height="26" rx="4" fill="#1f4e79"/>
+  <text x="845" y="463" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">+ Add case</text>
+  <rect x="920" y="446" width="150" height="26" rx="4" fill="#fff" stroke="#d6d6d6" stroke-width="1"/>
+  <text x="995" y="463" text-anchor="middle" font-size="11" font-weight="500" fill="#1f4e79">Open workbook &#8599;</text>
+
+  <!-- Research Ideas -->
+  <rect x="760" y="504" width="340" height="118" rx="6" class="card"/>
+  <text x="780" y="528" class="card-title">Research Ideas</text>
+  <text x="780" y="544" class="card-sub">Captured from journal-club discussion</text>
+  <line x1="760" y1="558" x2="1100" y2="558" class="card-header-rule"/>
+  <text x="780" y="578" class="list-item">Timing of DVT ppx after lower extremity fx</text>
+  <text x="780" y="592" class="list-item-meta">PGY-4 · Apr 17</text>
+  <line x1="780" y1="602" x2="1080" y2="602" class="row-rule"/>
+  <text x="780" y="616" class="list-item">Outcomes of early WB in calcaneus fx</text>
+
+  <!-- Resource Links -->
+  <rect x="760" y="638" width="340" height="86" rx="6" class="card"/>
+  <text x="780" y="662" class="card-title">Resource Links</text>
+  <line x1="760" y1="672" x2="1100" y2="672" class="card-header-rule"/>
+  <text x="780" y="690" class="list-item">AO Surgery Reference &#8599;</text>
+  <text x="780" y="706" class="list-item">OTA Fracture Compendium &#8599;</text>
+
+  <!-- Upcoming Webinars -->
+  <rect x="760" y="740" width="340" height="80" rx="6" class="card"/>
+  <text x="780" y="764" class="card-title">Upcoming Webinars</text>
+  <line x1="760" y1="774" x2="1100" y2="774" class="card-header-rule"/>
+  <text x="780" y="792" class="list-item">OTA Case of the Month · May 15</text>
+  <text x="780" y="806" class="list-item-meta">Register &#8599;</text>
+
+  <!-- Footer -->
+  <text x="600" y="836" text-anchor="middle" class="access-note">OHSU ORTHOPAEDIC TRAUMA DIDACTICS   ·   ACCESS RESTRICTED TO @OHSU.EDU AND @UOREGON.EDU</text>
+
+  <!-- ===== Callouts ===== -->
+  <!-- 1: Six-week rolling calendar -->
+  <line x1="48" y1="198" x2="100" y2="198" class="leader"/>
+  <circle cx="48" cy="198" r="11" class="callout-dot"/>
+  <text x="48" y="202" text-anchor="middle" class="callout-num">1</text>
+  <text x="30" y="226" class="callout-text-bold">Six-week rolling</text>
+  <text x="30" y="240" class="callout-text">calendar (Wed/Thu/Fri)</text>
+
+  <!-- 2: Color-coded session types -->
+  <line x1="48" y1="320" x2="116" y2="320" class="leader"/>
+  <circle cx="48" cy="320" r="11" class="callout-dot"/>
+  <text x="48" y="324" text-anchor="middle" class="callout-num">2</text>
+  <text x="30" y="348" class="callout-text-bold">Color-coded by</text>
+  <text x="30" y="362" class="callout-text">session type</text>
+
+  <!-- 3: Pre-reading papers attached -->
+  <line x1="600" y1="286" x2="1160" y2="286" class="leader" stroke-dasharray="0"/>
+  <path d="M 600 286 L 595 282 M 600 286 L 595 290" class="leader"/>
+  <circle cx="1164" cy="286" r="11" class="callout-dot"/>
+  <text x="1164" y="290" text-anchor="middle" class="callout-num">3</text>
+  <text x="1150" y="266" text-anchor="end" class="callout-text-bold">Pre-reading PDFs</text>
+  <text x="1150" y="280" text-anchor="end" class="callout-text">attached per session</text>
+
+  <!-- 4: Resident wish list with upvoting -->
+  <line x1="48" y1="640" x2="120" y2="640" class="leader"/>
+  <circle cx="48" cy="640" r="11" class="callout-dot"/>
+  <text x="48" y="644" text-anchor="middle" class="callout-num">4</text>
+  <text x="30" y="668" class="callout-text-bold">Resident wish list</text>
+  <text x="30" y="682" class="callout-text">with upvoting</text>
+
+  <!-- 5: Searchable archive -->
+  <line x1="1100" y1="212" x2="1160" y2="212" class="leader"/>
+  <circle cx="1164" cy="212" r="11" class="callout-dot"/>
+  <text x="1164" y="216" text-anchor="middle" class="callout-num">5</text>
+  <text x="1150" y="186" text-anchor="end" class="callout-text-bold">Searchable archive</text>
+  <text x="1150" y="200" text-anchor="end" class="callout-text">of past sessions + PDFs</text>
+
+  <!-- 6: Teaching case repository -->
+  <line x1="1100" y1="416" x2="1160" y2="416" class="leader"/>
+  <circle cx="1164" cy="416" r="11" class="callout-dot"/>
+  <text x="1164" y="420" text-anchor="middle" class="callout-num">6</text>
+  <text x="1150" y="394" text-anchor="end" class="callout-text-bold">Teaching case</text>
+  <text x="1150" y="408" text-anchor="end" class="callout-text">repository (AO/OTA-tagged)</text>
+
+  <!-- 7: Research ideas log -->
+  <line x1="1100" y1="560" x2="1160" y2="560" class="leader"/>
+  <circle cx="1164" cy="560" r="11" class="callout-dot"/>
+  <text x="1164" y="564" text-anchor="middle" class="callout-num">7</text>
+  <text x="1150" y="540" text-anchor="end" class="callout-text-bold">Research ideas log</text>
+  <text x="1150" y="554" text-anchor="end" class="callout-text">by submitter role</text>
+
+  <!-- 8: Resources + webinars -->
+  <line x1="1100" y1="750" x2="1160" y2="750" class="leader"/>
+  <circle cx="1164" cy="750" r="11" class="callout-dot"/>
+  <text x="1164" y="754" text-anchor="middle" class="callout-num">8</text>
+  <text x="1150" y="728" text-anchor="end" class="callout-text-bold">Curated resources</text>
+  <text x="1150" y="742" text-anchor="end" class="callout-text">and webinar listings</text>
+
+  <!-- 9: Domain-locked access (footer) -->
+  <line x1="600" y1="848" x2="600" y2="878" class="leader"/>
+  <circle cx="600" cy="882" r="11" class="callout-dot"/>
+  <text x="600" y="886" text-anchor="middle" class="callout-num">9</text>
+  <text x="620" y="886" class="callout-text-bold">Domain-locked institutional access</text>
+</svg>

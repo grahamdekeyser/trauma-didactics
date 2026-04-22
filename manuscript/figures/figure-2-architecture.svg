@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" font-family="Helvetica, Arial, sans-serif" shape-rendering="geometricPrecision">
+  <style>
+    .title { font-size: 22px; font-weight: 700; fill: #111; }
+    .subtitle { font-size: 13px; font-weight: 400; fill: #555; font-style: italic; }
+    .tier-label { font-size: 11px; font-weight: 700; fill: #666; letter-spacing: 0.14em; }
+    .box-title { font-size: 15px; font-weight: 700; fill: #111; }
+    .box-sub { font-size: 11px; font-weight: 400; fill: #666; }
+    .box-item { font-size: 12px; font-weight: 500; fill: #222; }
+    .box-item-muted { font-size: 11px; font-weight: 400; fill: #666; }
+    .link-label { font-size: 11px; font-weight: 600; fill: #1f4e79; }
+    .link-sub { font-size: 10px; font-weight: 400; fill: #777; font-style: italic; }
+    .note { font-size: 11px; font-weight: 400; fill: #555; }
+    .inset-title { font-size: 14px; font-weight: 700; fill: #111; }
+    .inset-sub { font-size: 11px; font-weight: 400; fill: #666; font-style: italic; }
+    .inset-step { font-size: 11px; font-weight: 500; fill: #222; }
+    .inset-step-num { font-size: 11px; font-weight: 700; fill: #1f4e79; }
+    .phi-label { font-size: 10px; font-weight: 700; fill: #b45309; letter-spacing: 0.08em; }
+    .nophi-label { font-size: 10px; font-weight: 700; fill: #15803d; letter-spacing: 0.08em; }
+
+    .card { fill: #fff; stroke: #c9c9c9; stroke-width: 1.25; }
+    .card-client { fill: #f9fafb; stroke: #c9c9c9; stroke-width: 1.25; }
+    .card-vercel { fill: #f6f7f9; stroke: #c9c9c9; stroke-width: 1.25; }
+    .card-supabase { fill: #f2f7f4; stroke: #b8cfc1; stroke-width: 1.25; }
+    .card-auth { fill: #fff7ed; stroke: #e5b680; stroke-width: 1; }
+    .sub-box { fill: #fff; stroke: #d6d6d6; stroke-width: 1; }
+    .tier-rule { stroke: #e5e5e5; stroke-width: 1; stroke-dasharray: 4 3; }
+    .arrow { stroke: #1f4e79; stroke-width: 1.5; fill: none; }
+    .arrow-bi { stroke: #1f4e79; stroke-width: 1.5; fill: none; }
+    .arrow-inset { stroke: #b45309; stroke-width: 1.5; fill: none; }
+    .arrow-nophi { stroke: #15803d; stroke-width: 1.25; fill: none; stroke-dasharray: 5 3; }
+
+    .inset-frame { fill: #fffaf0; stroke: #e5b680; stroke-width: 1.25; stroke-dasharray: 0; }
+    .inset-corner { fill: #fef3c7; stroke: #e5b680; stroke-width: 1; }
+    .phi-zone { fill: #fef3c7; stroke: #e5b680; stroke-width: 1; stroke-dasharray: 4 3; }
+    .nophi-zone { fill: #ecfdf5; stroke: #86efac; stroke-width: 1; stroke-dasharray: 4 3; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f4e79"/>
+    </marker>
+    <marker id="arrowhead-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b45309"/>
+    </marker>
+    <marker id="arrowhead-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#15803d"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="34" text-anchor="middle" class="title">System architecture and replication flow</text>
+  <text x="600" y="54" text-anchor="middle" class="subtitle">three-tier web application + optional HIPAA-compatible teaching-case capture</text>
+
+  <!-- ===== Tier labels (left) ===== -->
+  <text x="30" y="130" class="tier-label">CLIENT</text>
+  <text x="30" y="290" class="tier-label">APPLICATION</text>
+  <text x="30" y="450" class="tier-label">DATA</text>
+
+  <!-- ===== Tier 1: Client ===== -->
+  <rect x="110" y="96" width="260" height="130" rx="8" class="card-client"/>
+  <text x="125" y="120" class="box-title">Resident / faculty browser</text>
+  <text x="125" y="138" class="box-sub">any modern device · mobile-responsive</text>
+  <line x1="125" y1="150" x2="355" y2="150" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="125" y="170" class="box-item">Signs in with institutional email</text>
+  <text x="125" y="188" class="box-item-muted">+ shared site password</text>
+  <text x="125" y="210" class="box-item">Reads + writes session data</text>
+
+  <!-- Domain-lock badge beside browser -->
+  <rect x="400" y="118" width="260" height="86" rx="8" class="card-auth"/>
+  <text x="415" y="140" class="box-title">Domain-locked access</text>
+  <text x="415" y="158" class="box-sub">institutional email allowlist</text>
+  <line x1="415" y1="168" x2="645" y2="168" stroke="#e5b680" stroke-width="1"/>
+  <text x="415" y="186" class="box-item">@ohsu.edu, @uoregon.edu</text>
+  <text x="415" y="202" class="box-item-muted">easy to substitute SSO (SAML/OIDC)</text>
+
+  <!-- Admin allowlist note beside -->
+  <rect x="690" y="118" width="260" height="86" rx="8" class="card"/>
+  <text x="705" y="140" class="box-title">Admin allowlist</text>
+  <text x="705" y="158" class="box-sub">faculty emails stored in database</text>
+  <line x1="705" y1="168" x2="935" y2="168" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="705" y="186" class="box-item">Adjustable without redeployment</text>
+  <text x="705" y="202" class="box-item-muted">non-admins: read + submit only</text>
+
+  <!-- Vertical connector: client -> application (over HTTPS) -->
+  <path d="M 240 226 L 240 286" class="arrow-bi" marker-end="url(#arrowhead)" marker-start="url(#arrowhead)"/>
+  <text x="248" y="258" class="link-label">HTTPS</text>
+  <text x="248" y="272" class="link-sub">TLS</text>
+
+  <!-- Tier divider -->
+  <line x1="20" y1="248" x2="1180" y2="248" class="tier-rule"/>
+
+  <!-- ===== Tier 2: Application (Vercel + Next.js) ===== -->
+  <rect x="110" y="286" width="540" height="130" rx="8" class="card-vercel"/>
+  <text x="125" y="310" class="box-title">Vercel · Next.js App Router</text>
+  <text x="125" y="328" class="box-sub">serverless edge + Node runtime · TypeScript · Tailwind + shadcn/ui</text>
+  <line x1="125" y1="340" x2="635" y2="340" stroke="#e5e5e5" stroke-width="1"/>
+  <rect x="130" y="350" width="150" height="50" rx="4" class="sub-box"/>
+  <text x="205" y="372" text-anchor="middle" class="box-item">Server Components</text>
+  <text x="205" y="390" text-anchor="middle" class="box-item-muted">fetch + render</text>
+  <rect x="290" y="350" width="150" height="50" rx="4" class="sub-box"/>
+  <text x="365" y="372" text-anchor="middle" class="box-item">Server Actions</text>
+  <text x="365" y="390" text-anchor="middle" class="box-item-muted">writes + mutations</text>
+  <rect x="450" y="350" width="180" height="50" rx="4" class="sub-box"/>
+  <text x="540" y="372" text-anchor="middle" class="box-item">Static + Media delivery</text>
+  <text x="540" y="390" text-anchor="middle" class="box-item-muted">PDFs via signed URLs</text>
+
+  <!-- Repo box on right -->
+  <rect x="690" y="286" width="260" height="130" rx="8" class="card"/>
+  <text x="705" y="310" class="box-title">GitHub repository</text>
+  <text x="705" y="328" class="box-sub">open source · MIT license</text>
+  <line x1="705" y1="340" x2="935" y2="340" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="705" y="360" class="box-item">Fork → connect → deploy</text>
+  <text x="705" y="378" class="box-item-muted">Vercel auto-build on push</text>
+  <text x="705" y="400" class="box-item-muted">all config in env variables</text>
+  <!-- arrow repo -> Vercel -->
+  <path d="M 690 350 L 650 350" class="arrow" marker-end="url(#arrowhead)"/>
+
+  <!-- Vertical connector: application -> data -->
+  <path d="M 380 416 L 380 476" class="arrow-bi" marker-end="url(#arrowhead)" marker-start="url(#arrowhead)"/>
+  <text x="392" y="448" class="link-label">Supabase JS client</text>
+  <text x="392" y="462" class="link-sub">service role (server) · anon (browser)</text>
+
+  <!-- Tier divider -->
+  <line x1="20" y1="436" x2="1180" y2="436" class="tier-rule"/>
+
+  <!-- ===== Tier 3: Supabase (Data) ===== -->
+  <rect x="110" y="476" width="540" height="180" rx="8" class="card-supabase"/>
+  <text x="125" y="500" class="box-title">Supabase project</text>
+  <text x="125" y="518" class="box-sub">managed Postgres + auth + object storage · free tier</text>
+  <line x1="125" y1="530" x2="635" y2="530" stroke="#b8cfc1" stroke-width="1"/>
+  <rect x="130" y="542" width="160" height="100" rx="4" class="sub-box"/>
+  <text x="210" y="564" text-anchor="middle" class="box-item">PostgreSQL</text>
+  <text x="210" y="582" text-anchor="middle" class="box-item-muted">sessions, papers,</text>
+  <text x="210" y="596" text-anchor="middle" class="box-item-muted">wish list, research</text>
+  <text x="210" y="610" text-anchor="middle" class="box-item-muted">ideas, admins,</text>
+  <text x="210" y="624" text-anchor="middle" class="box-item-muted">teaching case mirror</text>
+
+  <rect x="300" y="542" width="160" height="100" rx="4" class="sub-box"/>
+  <text x="380" y="564" text-anchor="middle" class="box-item">Auth</text>
+  <text x="380" y="582" text-anchor="middle" class="box-item-muted">session cookies</text>
+  <text x="380" y="596" text-anchor="middle" class="box-item-muted">email + password</text>
+  <text x="380" y="610" text-anchor="middle" class="box-item-muted">domain allowlist</text>
+  <text x="380" y="624" text-anchor="middle" class="box-item-muted">enforced in code</text>
+
+  <rect x="470" y="542" width="160" height="100" rx="4" class="sub-box"/>
+  <text x="550" y="564" text-anchor="middle" class="box-item">Storage</text>
+  <text x="550" y="582" text-anchor="middle" class="box-item-muted">journal-club PDFs</text>
+  <text x="550" y="596" text-anchor="middle" class="box-item-muted">&#8776;250 KB each</text>
+  <text x="550" y="610" text-anchor="middle" class="box-item-muted">signed-URL reads</text>
+  <text x="550" y="624" text-anchor="middle" class="box-item-muted">admin-only writes</text>
+
+  <!-- No PHI label on Supabase -->
+  <rect x="500" y="486" width="140" height="20" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+  <text x="570" y="500" text-anchor="middle" class="nophi-label">NO PHI STORED</text>
+
+  <!-- ===== Inset: HIPAA-compatible teaching case capture ===== -->
+  <rect x="690" y="476" width="490" height="320" rx="10" class="inset-frame"/>
+  <rect x="690" y="476" width="160" height="22" rx="0" fill="#fef3c7"/>
+  <text x="704" y="492" class="inset-title">Inset:</text>
+  <text x="745" y="492" class="box-title" fill="#92400e">HIPAA-compatible capture</text>
+  <text x="704" y="516" class="inset-sub">optional teaching-case flow · stays inside institutional BAA</text>
+
+  <!-- Step 1: Form in browser -->
+  <rect x="710" y="530" width="200" height="56" rx="6" class="sub-box"/>
+  <text x="724" y="550" class="inset-step-num">1.</text>
+  <text x="744" y="550" class="inset-step">Case form in app</text>
+  <text x="724" y="568" class="box-item-muted">fracture type, side,</text>
+  <text x="724" y="582" class="box-item-muted">mechanism, note</text>
+
+  <!-- Step 2: Server Action -->
+  <rect x="960" y="530" width="200" height="56" rx="6" class="sub-box"/>
+  <text x="974" y="550" class="inset-step-num">2.</text>
+  <text x="994" y="550" class="inset-step">Server Action (Vercel)</text>
+  <text x="974" y="568" class="box-item-muted">splits identifying vs.</text>
+  <text x="974" y="582" class="box-item-muted">non-identifying fields</text>
+
+  <path d="M 910 558 L 960 558" class="arrow-inset" marker-end="url(#arrowhead-orange)"/>
+
+  <!-- Phi zone frame -->
+  <rect x="700" y="604" width="470" height="122" rx="6" class="phi-zone"/>
+  <rect x="710" y="600" width="140" height="16" rx="8" fill="#fef3c7" stroke="#e5b680" stroke-width="1"/>
+  <text x="780" y="612" text-anchor="middle" class="phi-label">PHI PATH · INSIDE BAA</text>
+
+  <!-- Step 3: Power Automate -->
+  <rect x="710" y="626" width="210" height="88" rx="6" class="sub-box"/>
+  <text x="724" y="646" class="inset-step-num">3.</text>
+  <text x="744" y="646" class="inset-step">Microsoft Power Automate</text>
+  <text x="724" y="664" class="box-item-muted">HTTP webhook trigger</text>
+  <text x="724" y="680" class="box-item-muted">add-row to Excel table</text>
+  <text x="724" y="696" class="box-item-muted">institutional tenant</text>
+  <text x="724" y="710" class="box-item-muted">under existing BAA</text>
+
+  <!-- Step 4: OneDrive workbook -->
+  <rect x="960" y="626" width="200" height="88" rx="6" class="sub-box"/>
+  <text x="974" y="646" class="inset-step-num">4.</text>
+  <text x="994" y="646" class="inset-step">OneDrive workbook</text>
+  <text x="974" y="664" class="box-item-muted">Teaching_Case_</text>
+  <text x="974" y="680" class="box-item-muted">Repository.xlsx</text>
+  <text x="974" y="696" class="box-item-muted">faculty-accessed</text>
+  <text x="974" y="710" class="box-item-muted">institutional OneDrive</text>
+
+  <path d="M 920 670 L 960 670" class="arrow-inset" marker-end="url(#arrowhead-orange)"/>
+  <path d="M 810 586 L 810 626" class="arrow-inset" marker-end="url(#arrowhead-orange)"/>
+
+  <!-- No-PHI return arrow to Supabase mirror -->
+  <rect x="710" y="740" width="450" height="46" rx="6" class="nophi-zone"/>
+  <text x="724" y="758" class="nophi-label">NO-PHI MIRROR</text>
+  <text x="724" y="776" class="box-item-muted">fracture type + timestamp + submitter role → Supabase (for counts/listing only)</text>
+
+  <!-- Non-PHI mirror arrow from Server Action down to Supabase -->
+  <path d="M 1060 586 C 1060 620, 1060 720, 1060 740" class="arrow-nophi" marker-end="url(#arrowhead-green)"/>
+
+  <!-- Connector: non-PHI path leaves inset back to main DB -->
+  <path d="M 710 762 C 670 762, 640 680, 640 600" class="arrow-nophi" marker-end="url(#arrowhead-green)"/>
+
+  <!-- Footer notes -->
+  <text x="30" y="810" class="note">All three vendors (Vercel, Supabase, GitHub) operate on free tiers sufficient for residency-scale use. Each layer is substitutable without rewriting the others.</text>
+</svg>
