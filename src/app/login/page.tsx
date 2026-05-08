@@ -16,8 +16,8 @@ export default async function LoginPage({ searchParams }: Props) {
           <CardHeader>
             <CardTitle>Sign in</CardTitle>
             <p className="text-sm text-muted-foreground">
-              Enter your OHSU or University of Oregon email and the shared
-              site password.
+              Enter your OHSU or University of Oregon email. We&apos;ll send a
+              6-digit verification code to confirm it&apos;s you.
             </p>
           </CardHeader>
           <CardContent>

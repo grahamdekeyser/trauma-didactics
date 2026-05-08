@@ -71,8 +71,6 @@ Edit `.env.local`:
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` — the `anon` public key (safe for the browser).
 - `SUPABASE_SERVICE_ROLE_KEY` — the `service_role` secret key (server only;
   **never** expose to the browser or commit).
-- `SITE_PASSWORD` — a shared password that institutional users enter alongside
-  their email. Rotate whenever you need to revoke access in bulk.
 - `POWER_AUTOMATE_WEBHOOK_URL` — optional; leave blank unless you are wiring
   up the OneDrive teaching-case bridge (see below).
 - `NEXT_PUBLIC_WEBEX_URL` — optional; the persistent Webex meeting URL you

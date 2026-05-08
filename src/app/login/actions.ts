@@ -1,15 +1,18 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
 const ALLOWED_DOMAINS = ["ohsu.edu", "uoregon.edu"];
 
-export type LoginState = {
-  ok: false;
-  message: string;
-} | null;
+export type RequestOtpState =
+  | { ok: true; email: string }
+  | { ok: false; message: string }
+  | null;
+
+export type VerifyOtpState =
+  | { ok: false; message: string }
+  | null;
 
 function validateEmail(email: string): string | null {
   if (!email) return "Please enter your email.";
@@ -20,88 +23,55 @@ function validateEmail(email: string): string | null {
   return null;
 }
 
-async function findUserByEmail(email: string) {
-  const admin = createAdminClient();
-  let page = 1;
-  const perPage = 200;
-  for (;;) {
-    const { data, error } = await admin.auth.admin.listUsers({ page, perPage });
-    if (error) throw error;
-    const match = data.users.find(
-      (u) => u.email?.toLowerCase() === email.toLowerCase(),
-    );
-    if (match) return match;
-    if (data.users.length < perPage) return null;
-    page += 1;
-  }
-}
-
-export async function signIn(
-  _prev: LoginState,
+export async function requestOtp(
+  _prev: RequestOtpState,
   formData: FormData,
-): Promise<LoginState> {
+): Promise<RequestOtpState> {
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
-  const password = String(formData.get("password") ?? "");
-  const next = String(formData.get("next") ?? "/") || "/";
 
   const emailErr = validateEmail(email);
   if (emailErr) {
     return { ok: false, message: emailErr };
   }
 
-  const sitePassword = process.env.SITE_PASSWORD;
-  if (!sitePassword) {
-    return {
-      ok: false,
-      message: "Server is missing SITE_PASSWORD. Contact the site admin.",
-    };
+  const supabase = await createClient();
+  const { error } = await supabase.auth.signInWithOtp({
+    email,
+    options: { shouldCreateUser: true },
+  });
+
+  if (error) {
+    return { ok: false, message: error.message };
   }
 
-  if (password !== sitePassword) {
-    return { ok: false, message: "Incorrect password." };
+  return { ok: true, email };
+}
+
+export async function verifyOtp(
+  _prev: VerifyOtpState,
+  formData: FormData,
+): Promise<VerifyOtpState> {
+  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  const token = String(formData.get("token") ?? "").trim();
+  const next = String(formData.get("next") ?? "/") || "/";
+
+  const emailErr = validateEmail(email);
+  if (emailErr) {
+    return { ok: false, message: emailErr };
+  }
+  if (!/^\d{6}$/.test(token)) {
+    return { ok: false, message: "Enter the 6-digit code from your email." };
   }
 
   const supabase = await createClient();
+  const { error } = await supabase.auth.verifyOtp({
+    email,
+    token,
+    type: "email",
+  });
 
-  // Fast path: user already has the shared password set.
-  const first = await supabase.auth.signInWithPassword({ email, password });
-  if (!first.error) {
-    redirect(next);
-  }
-
-  // Slow path: either the user doesn't exist, or they're a legacy magic-link
-  // user whose account has no password yet. Provision them via admin API.
-  const admin = createAdminClient();
-  let existing;
-  try {
-    existing = await findUserByEmail(email);
-  } catch (e) {
-    const msg = e instanceof Error ? e.message : "Lookup failed.";
-    return { ok: false, message: msg };
-  }
-
-  if (!existing) {
-    const { error: createErr } = await admin.auth.admin.createUser({
-      email,
-      password,
-      email_confirm: true,
-    });
-    if (createErr) {
-      return { ok: false, message: createErr.message };
-    }
-  } else {
-    const { error: updErr } = await admin.auth.admin.updateUserById(
-      existing.id,
-      { password },
-    );
-    if (updErr) {
-      return { ok: false, message: updErr.message };
-    }
-  }
-
-  const retry = await supabase.auth.signInWithPassword({ email, password });
-  if (retry.error) {
-    return { ok: false, message: retry.error.message };
+  if (error) {
+    return { ok: false, message: error.message };
   }
 
   redirect(next);

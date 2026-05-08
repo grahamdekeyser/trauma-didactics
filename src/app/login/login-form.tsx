@@ -4,7 +4,12 @@ import { useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signIn, type LoginState } from "./actions";
+import {
+  requestOtp,
+  verifyOtp,
+  type RequestOtpState,
+  type VerifyOtpState,
+} from "./actions";
 
 type Props = {
   next: string;
@@ -12,46 +17,85 @@ type Props = {
 };
 
 export function LoginForm({ next, initialError }: Props) {
-  const [state, action, pending] = useActionState<LoginState, FormData>(
-    signIn,
-    null,
-  );
+  const [requestState, requestAction, requesting] = useActionState<
+    RequestOtpState,
+    FormData
+  >(requestOtp, null);
+  const [verifyState, verifyAction, verifying] = useActionState<
+    VerifyOtpState,
+    FormData
+  >(verifyOtp, null);
+
+  const codeStep = requestState?.ok === true;
+
+  if (!codeStep) {
+    return (
+      <form action={requestAction} className="space-y-4">
+        <div className="space-y-1">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@ohsu.edu"
+            required
+            autoComplete="email"
+            disabled={requesting}
+          />
+        </div>
+        <Button type="submit" className="w-full" disabled={requesting}>
+          {requesting ? "Sending code…" : "Send verification code"}
+        </Button>
+        {initialError && !requestState && (
+          <p className="text-sm text-destructive">{initialError}</p>
+        )}
+        {requestState && !requestState.ok && (
+          <p className="text-sm text-destructive">{requestState.message}</p>
+        )}
+      </form>
+    );
+  }
+
+  const email = requestState.email;
 
   return (
-    <form action={action} className="space-y-4">
+    <form action={verifyAction} className="space-y-4">
       <input type="hidden" name="next" value={next} />
+      <input type="hidden" name="email" value={email} />
+      <p className="text-sm text-muted-foreground">
+        We sent a 6-digit code to <span className="font-medium">{email}</span>.
+        Enter it below to sign in.
+      </p>
       <div className="space-y-1">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="token">Verification code</Label>
         <Input
-          id="email"
-          name="email"
-          type="email"
-          placeholder="you@ohsu.edu"
+          id="token"
+          name="token"
+          inputMode="numeric"
+          autoComplete="one-time-code"
+          pattern="\d{6}"
+          maxLength={6}
+          placeholder="123456"
           required
-          autoComplete="email"
-          disabled={pending}
+          disabled={verifying}
         />
       </div>
-      <div className="space-y-1">
-        <Label htmlFor="password">Site password</Label>
-        <Input
-          id="password"
-          name="password"
-          type="password"
-          required
-          autoComplete="current-password"
-          disabled={pending}
-        />
-      </div>
-      <Button type="submit" className="w-full" disabled={pending}>
-        {pending ? "Signing in…" : "Sign in"}
+      <Button type="submit" className="w-full" disabled={verifying}>
+        {verifying ? "Verifying…" : "Verify and sign in"}
       </Button>
-      {initialError && !state && (
-        <p className="text-sm text-destructive">{initialError}</p>
+      {verifyState && !verifyState.ok && (
+        <p className="text-sm text-destructive">{verifyState.message}</p>
       )}
-      {state && !state.ok && (
-        <p className="text-sm text-destructive">{state.message}</p>
-      )}
+      <p className="text-center text-sm text-muted-foreground">
+        Wrong email?{" "}
+        <button
+          type="button"
+          className="underline underline-offset-2 hover:text-foreground"
+          onClick={() => window.location.reload()}
+        >
+          Start over
+        </button>
+      </p>
     </form>
   );
 }
