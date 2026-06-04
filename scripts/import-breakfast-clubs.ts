@@ -10,15 +10,17 @@ config({ path: ".env.local" });
 // script passes `--apply` ahead of the user-supplied path, so positionally
 // reading argv[2] would grab the flag instead of the folder.
 const positionalRoot = process.argv.slice(2).find((a) => !a.startsWith("--"));
-const SOURCE_ROOT = process.env.BREAKFAST_CLUB_ROOT ?? positionalRoot;
+const resolvedRoot = process.env.BREAKFAST_CLUB_ROOT ?? positionalRoot;
 
-if (!SOURCE_ROOT) {
+if (!resolvedRoot) {
   console.error(
     "Set BREAKFAST_CLUB_ROOT env var or pass the archive root as the first argument.\n" +
       "Usage: tsx scripts/import-breakfast-clubs.ts <archive-root> [--apply] [--verbose]",
   );
   process.exit(1);
 }
+
+const SOURCE_ROOT: string = resolvedRoot;
 
 const apply = process.argv.includes("--apply");
 const verbose = process.argv.includes("--verbose");
