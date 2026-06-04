@@ -71,7 +71,13 @@ export async function SiteHeader() {
         <div className="absolute inset-x-0 bottom-0 z-10">
           <div className="mx-auto max-w-7xl px-4 pb-6 sm:px-6 sm:pb-7 md:px-8">
             <h1 className="font-serif text-4xl font-semibold tracking-tight text-white drop-shadow-md sm:text-5xl md:text-6xl">
-              Trauma Didactics
+              <Link
+                href="/"
+                aria-label="Home"
+                className="transition hover:text-white/80"
+              >
+                Trauma Didactics
+              </Link>
             </h1>
             <p className="mt-2 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-white/72">
               <span className="h-px w-6 rounded-full bg-[var(--gold)]" />
