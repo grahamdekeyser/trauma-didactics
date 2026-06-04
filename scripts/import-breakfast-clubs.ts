@@ -6,7 +6,11 @@ import type { Database } from "../src/lib/supabase/database.types";
 
 config({ path: ".env.local" });
 
-const SOURCE_ROOT = process.env.BREAKFAST_CLUB_ROOT ?? process.argv[2];
+// Pick the first non-flag CLI argument as the source root. The `:apply` npm
+// script passes `--apply` ahead of the user-supplied path, so positionally
+// reading argv[2] would grab the flag instead of the folder.
+const positionalRoot = process.argv.slice(2).find((a) => !a.startsWith("--"));
+const SOURCE_ROOT = process.env.BREAKFAST_CLUB_ROOT ?? positionalRoot;
 
 if (!SOURCE_ROOT) {
   console.error(
@@ -113,6 +117,27 @@ function titleFromPdfFilename(absPath: string): string {
   return base.replace(/\s+/g, " ").trim();
 }
 
+const WEEKDAY_NAMES = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+// The rolling calendar only renders a breakfast-club slot on the Wednesday of
+// each week (see SESSION_WEEKDAYS in src/lib/dates.ts). A session dated to any
+// other weekday is created in the DB but never matches a grid cell, so it
+// silently vanishes from the calendar. Surface that before it bites.
+function nonWednesdayWarning(date: string): string | null {
+  const [y, m, d] = date.split("-").map(Number);
+  const weekday = WEEKDAY_NAMES[new Date(Date.UTC(y, m - 1, d, 12)).getUTCDay()];
+  if (weekday === "Wednesday") return null;
+  return `  [warn] ${date} is a ${weekday}, not Wednesday — breakfast-club slots only render on Wednesdays, so this will NOT appear on the rolling calendar.`;
+}
+
 async function findExistingSession(
   date: string,
 ): Promise<{ id: string } | null> {
@@ -127,23 +152,36 @@ async function findExistingSession(
 }
 
 async function importOne(p: ParsedFolder): Promise<{
-  status: "created" | "skipped-exists" | "dry-run";
+  status: "created" | "skipped-exists" | "skipped-empty" | "dry-run";
   papers: number;
+  offCalendar: boolean;
 }> {
   const pdfs = await listPdfs(p.absPath);
+
+  // Placeholder folders (date reserved, no topic typed yet, no PDFs added)
+  // carry nothing worth a session row — skip them so they don't litter the
+  // calendar with blank entries. They'll import naturally once filled in.
+  if (p.topic.length === 0 && pdfs.length === 0) {
+    console.log(`  [skip] ${p.date} empty placeholder (no topic, no PDFs)`);
+    return { status: "skipped-empty", papers: 0, offCalendar: false };
+  }
+
+  const warning = nonWednesdayWarning(p.date);
+  if (warning) console.warn(warning);
+  const offCalendar = warning !== null;
 
   if (!apply) {
     console.log(
       `  [dry] ${p.date}  "${p.topic}"  (${pdfs.length} PDF${pdfs.length === 1 ? "" : "s"})`,
     );
     if (verbose) for (const f of pdfs) console.log(`        - ${basename(f)}`);
-    return { status: "dry-run", papers: pdfs.length };
+    return { status: "dry-run", papers: pdfs.length, offCalendar };
   }
 
   const existing = await findExistingSession(p.date);
   if (existing) {
     console.log(`  [skip] ${p.date} "${p.topic}" already exists (id=${existing.id.slice(0, 8)}…)`);
-    return { status: "skipped-exists", papers: 0 };
+    return { status: "skipped-exists", papers: 0, offCalendar };
   }
 
   const { data: inserted, error: insErr } = await supabase
@@ -196,7 +234,7 @@ async function importOne(p: ParsedFolder): Promise<{
   console.log(
     `  [ok]  ${p.date} "${p.topic}" → session ${sessionId.slice(0, 8)}… + ${uploaded}/${pdfs.length} PDFs`,
   );
-  return { status: "created", papers: uploaded };
+  return { status: "created", papers: uploaded, offCalendar };
 }
 
 async function main() {
@@ -214,6 +252,8 @@ async function main() {
   let totalPdfs = 0;
   let created = 0;
   let skipped = 0;
+  let skippedEmpty = 0;
+  const offCalendarDates: string[] = [];
 
   for (const { year, path } of years) {
     console.log(`== ${year} ==`);
@@ -224,15 +264,26 @@ async function main() {
       totalPdfs += res.papers;
       if (res.status === "created") created += 1;
       if (res.status === "skipped-exists") skipped += 1;
+      if (res.status === "skipped-empty") skippedEmpty += 1;
+      if (res.offCalendar) offCalendarDates.push(`${p.date} "${p.topic}"`);
     }
     console.log("");
   }
 
   console.log("---");
   console.log(`Sessions processed: ${totalSessions}`);
+  if (offCalendarDates.length > 0) {
+    console.log("");
+    console.log(
+      `⚠ ${offCalendarDates.length} session(s) are NOT on a Wednesday and will not show on the rolling calendar:`,
+    );
+    for (const d of offCalendarDates) console.log(`    ${d}`);
+    console.log("  Fix the folder date (or move the club to its Wednesday) and re-run.");
+  }
   if (apply) {
     console.log(`  created:          ${created}`);
     console.log(`  skipped (exists): ${skipped}`);
+    console.log(`  skipped (empty):  ${skippedEmpty}`);
     console.log(`PDFs uploaded:      ${totalPdfs}`);
   } else {
     console.log(`PDFs would upload:  ${totalPdfs}`);

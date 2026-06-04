@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  LaunchAgent: auto-sync the desktop Breakfast Club folder to Supabase.
+
+  Triggers on two signals:
+    * WatchPaths  — fires when a club/year folder is added or removed.
+    * StartInterval — every 30 min, a safety net that also catches PDFs
+      dropped into an existing club folder (which WatchPaths may not see).
+
+  Install:
+    cp scripts/com.ohsu.trauma.breakfast-sync.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.ohsu.trauma.breakfast-sync.plist
+  Disable:
+    launchctl unload ~/Library/LaunchAgents/com.ohsu.trauma.breakfast-sync.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ohsu.trauma.breakfast-sync</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/dekeyser/Desktop/Trauma-Didactics-App-2/scripts/sync-breakfast-clubs.sh</string>
+  </array>
+
+  <key>WatchPaths</key>
+  <array>
+    <string>/Users/dekeyser/Desktop/OHSU Trauma/Breakfast Club</string>
+    <string>/Users/dekeyser/Desktop/OHSU Trauma/Breakfast Club/2026</string>
+  </array>
+
+  <key>StartInterval</key>
+  <integer>1800</integer>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/dekeyser/Library/Logs/breakfast-club-sync.launchd.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/dekeyser/Library/Logs/breakfast-club-sync.launchd.log</string>
+</dict>
+</plist>
