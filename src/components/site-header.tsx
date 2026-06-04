@@ -25,20 +25,9 @@ export async function SiteHeader() {
         {/* Lighter overlay — photo breathes */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/55" />
 
-        {/* Top row: circular logo (left) + frosted-glass nav pill (right) */}
+        {/* Top row: home link (left) + frosted-glass nav pill (right) */}
         <div className="absolute inset-x-0 top-0 z-10">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-3">
-            <Link href="/" aria-label="Home">
-              <span className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-white shadow-md ring-1 ring-black/5 sm:h-32 sm:w-32">
-                <Image
-                  src="/ohsu-logo-v2.jpg"
-                  alt="OHSU"
-                  width={1024}
-                  height={731}
-                  className="h-24 w-auto sm:h-28"
-                />
-              </span>
-            </Link>
+          <div className="mx-auto flex max-w-7xl items-center justify-end gap-3 px-4 py-3 sm:px-6 md:px-8">
             <div className="flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 backdrop-blur-md">
               <Link
                 href="/archive"
@@ -80,7 +69,7 @@ export async function SiteHeader() {
 
         {/* Title */}
         <div className="absolute inset-x-0 bottom-0 z-10">
-          <div className="mx-auto max-w-7xl px-8 pb-7">
+          <div className="mx-auto max-w-7xl px-4 pb-6 sm:px-6 sm:pb-7 md:px-8">
             <h1 className="font-serif text-4xl font-semibold tracking-tight text-white drop-shadow-md sm:text-5xl md:text-6xl">
               Trauma Didactics
             </h1>
