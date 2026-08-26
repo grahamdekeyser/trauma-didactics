@@ -1,219 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" font-family="Helvetica, Arial, sans-serif" shape-rendering="geometricPrecision">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1180" font-family="Helvetica, Arial, sans-serif" shape-rendering="geometricPrecision">
   <style>
-    .title { font-size: 22px; font-weight: 700; fill: #111; }
-    .subtitle { font-size: 13px; font-weight: 400; fill: #555; font-style: italic; }
-    .tier-label { font-size: 11px; font-weight: 700; fill: #666; letter-spacing: 0.14em; }
-    .box-title { font-size: 15px; font-weight: 700; fill: #111; }
-    .box-sub { font-size: 11px; font-weight: 400; fill: #666; }
-    .box-item { font-size: 12px; font-weight: 500; fill: #222; }
-    .box-item-muted { font-size: 11px; font-weight: 400; fill: #666; }
-    .link-label { font-size: 11px; font-weight: 600; fill: #1f4e79; }
-    .link-sub { font-size: 10px; font-weight: 400; fill: #777; font-style: italic; }
-    .note { font-size: 11px; font-weight: 400; fill: #555; }
-    .inset-title { font-size: 14px; font-weight: 700; fill: #111; }
-    .inset-sub { font-size: 11px; font-weight: 400; fill: #666; font-style: italic; }
-    .inset-step { font-size: 11px; font-weight: 500; fill: #222; }
-    .inset-step-num { font-size: 11px; font-weight: 700; fill: #1f4e79; }
-    .phi-label { font-size: 10px; font-weight: 700; fill: #b45309; letter-spacing: 0.08em; }
-    .nophi-label { font-size: 10px; font-weight: 700; fill: #15803d; letter-spacing: 0.08em; }
-
-    .card { fill: #fff; stroke: #c9c9c9; stroke-width: 1.25; }
-    .card-client { fill: #f9fafb; stroke: #c9c9c9; stroke-width: 1.25; }
-    .card-vercel { fill: #f6f7f9; stroke: #c9c9c9; stroke-width: 1.25; }
-    .card-supabase { fill: #f2f7f4; stroke: #b8cfc1; stroke-width: 1.25; }
-    .card-auth { fill: #fff7ed; stroke: #e5b680; stroke-width: 1; }
-    .sub-box { fill: #fff; stroke: #d6d6d6; stroke-width: 1; }
-    .tier-rule { stroke: #e5e5e5; stroke-width: 1; stroke-dasharray: 4 3; }
-    .arrow { stroke: #1f4e79; stroke-width: 1.5; fill: none; }
-    .arrow-bi { stroke: #1f4e79; stroke-width: 1.5; fill: none; }
-    .arrow-inset { stroke: #b45309; stroke-width: 1.5; fill: none; }
-    .arrow-nophi { stroke: #15803d; stroke-width: 1.25; fill: none; stroke-dasharray: 5 3; }
-
-    .inset-frame { fill: #fffaf0; stroke: #e5b680; stroke-width: 1.25; stroke-dasharray: 0; }
-    .inset-corner { fill: #fef3c7; stroke: #e5b680; stroke-width: 1; }
-    .phi-zone { fill: #fef3c7; stroke: #e5b680; stroke-width: 1; stroke-dasharray: 4 3; }
-    .nophi-zone { fill: #ecfdf5; stroke: #86efac; stroke-width: 1; stroke-dasharray: 4 3; }
+    .fig-title { font-size: 28px; font-weight: 700; fill: #111; }
+    .fig-subtitle { font-size: 17px; font-weight: 400; fill: #555; font-style: italic; }
+    .phase-label { font-size: 15px; font-weight: 700; fill: #ffffff; letter-spacing: 1.8px; }
+    .tier-label { font-size: 13px; font-weight: 700; fill: #888; letter-spacing: 1.5px; }
+    .card-title { font-size: 20px; font-weight: 700; fill: #111; }
+    .card-sub { font-size: 15px; font-weight: 400; fill: #555; }
+    .card-body { font-size: 14px; font-weight: 400; fill: #444; }
+    .col-hdr { font-size: 12px; font-weight: 700; fill: #1f4e79; letter-spacing: 1.3px; }
+    .arrow-label { font-size: 13px; font-weight: 600; fill: #1f4e79; letter-spacing: 0.3px; }
+    .arrow-sub { font-size: 12px; font-weight: 400; fill: #888; font-style: italic; }
+    .phi-label { font-size: 12px; font-weight: 700; fill: #a25900; letter-spacing: 1.5px; }
+    .nophi-label { font-size: 13px; font-weight: 700; fill: #166534; letter-spacing: 1.2px; }
+    .nophi-badge-text { font-size: 11px; font-weight: 700; fill: #166534; letter-spacing: 1.1px; }
+    .footer-note { font-size: 15px; font-weight: 400; fill: #555; font-style: italic; }
+    .phase-band { fill: #1f4e79; }
+    .card-main { fill: #ffffff; stroke: #d4d4d4; stroke-width: 1.2; }
+    .outer { fill: none; stroke: #d4d4d4; stroke-width: 1.2; }
+    .divider { stroke: #ececec; stroke-width: 1; }
+    .arrow-line { stroke: #1f4e79; stroke-width: 1.8; fill: none; }
+    .phi-zone { fill: #fdf5e3; stroke: #c9a76a; stroke-width: 1.2; }
+    .phi-zone-banner { fill: #f5e1b5; }
+    .nophi-badge { fill: #dcfce7; stroke: #86efac; stroke-width: 1; }
+    .nophi-arrow { stroke: #166534; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
   </style>
 
   <defs>
-    <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <marker id="arrow-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f4e79"/>
     </marker>
-    <marker id="arrowhead-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b45309"/>
+    <marker id="arrow-nophi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#166534"/>
     </marker>
-    <marker id="arrowhead-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#15803d"/>
-    </marker>
+
+    <symbol id="i-vercel" viewBox="0 0 24 24">
+      <path d="M24 22.525H0l12-21.05 12 21.05z" fill="#000000"/>
+    </symbol>
+    <symbol id="i-supabase" viewBox="0 0 24 24">
+      <path d="M21.362 9.354H12V.396a.396.396 0 00-.716-.233L2.203 12.424l-.401.562a1.04 1.04 0 00.836 1.659H12v8.959a.396.396 0 00.716.233l9.081-12.261.401-.562a1.04 1.04 0 00-.836-1.66z" fill="#3ECF8E"/>
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#181717"/>
+    </symbol>
+    <symbol id="i-powerautomate" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="4" fill="#0066FF"/>
+      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 10 A6 6 0 0 1 18 10"/>
+        <polyline points="15.5,7.5 18,10 20.2,7.8"/>
+        <path d="M18 14 A6 6 0 0 1 6 14"/>
+        <polyline points="8.5,16.5 6,14 3.8,16.2"/>
+      </g>
+    </symbol>
+    <symbol id="i-onedrive" viewBox="0 0 24 24">
+      <path d="M14 6.5 A5.2 5.2 0 0 0 9.1 10 A4 4 0 0 0 3.5 13.5 A4 4 0 0 0 7.5 17.5 H19 A3.2 3.2 0 0 0 22.2 14.3 A3.6 3.6 0 0 0 18.6 10.7 A5.2 5.2 0 0 0 14 6.5 Z" fill="#0364B8"/>
+    </symbol>
+    <symbol id="i-browser" viewBox="0 0 24 24">
+      <rect x="2" y="4" width="20" height="16" rx="2" fill="#ffffff" stroke="#1f4e79" stroke-width="1.6"/>
+      <line x1="2" y1="9" x2="22" y2="9" stroke="#1f4e79" stroke-width="1.6"/>
+      <circle cx="5.5" cy="6.5" r="0.9" fill="#1f4e79"/>
+      <circle cx="8.2" cy="6.5" r="0.9" fill="#1f4e79"/>
+      <circle cx="10.9" cy="6.5" r="0.9" fill="#1f4e79"/>
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24">
+      <rect x="5" y="11" width="14" height="10" rx="2" fill="#1f4e79"/>
+      <path d="M8 11 V7 A4 4 0 0 1 16 7 V11" stroke="#1f4e79" stroke-width="2" fill="none"/>
+      <circle cx="12" cy="16" r="1.3" fill="#ffffff"/>
+    </symbol>
   </defs>
 
+  <rect width="1800" height="1180" fill="#ffffff"/>
+
   <!-- Title -->
-  <text x="600" y="34" text-anchor="middle" class="title">System architecture and replication flow</text>
-  <text x="600" y="54" text-anchor="middle" class="subtitle">three-tier web application + optional HIPAA-compatible teaching-case capture</text>
+  <text x="900" y="54" text-anchor="middle" class="fig-title">System architecture and HIPAA boundary</text>
+  <text x="900" y="88" text-anchor="middle" class="fig-subtitle">Three-tier web application — every layer substitutable without rewriting the others.</text>
 
-  <!-- ===== Tier labels (left) ===== -->
-  <text x="30" y="130" class="tier-label">CLIENT</text>
-  <text x="30" y="290" class="tier-label">APPLICATION</text>
-  <text x="30" y="450" class="tier-label">DATA</text>
+  <!-- Outer frame -->
+  <rect x="60" y="112" width="1680" height="1008" rx="8" class="outer"/>
 
-  <!-- ===== Tier 1: Client ===== -->
-  <rect x="110" y="96" width="260" height="130" rx="8" class="card-client"/>
-  <text x="125" y="120" class="box-title">Resident / faculty browser</text>
-  <text x="125" y="138" class="box-sub">any modern device · mobile-responsive</text>
-  <line x1="125" y1="150" x2="355" y2="150" stroke="#e5e5e5" stroke-width="1"/>
-  <text x="125" y="170" class="box-item">Signs in with institutional email</text>
-  <text x="125" y="188" class="box-item-muted">+ shared site password</text>
-  <text x="125" y="210" class="box-item">Reads + writes session data</text>
+  <!-- ========================================================== -->
+  <!-- Section 1: Main architecture (y=112..740)                    -->
+  <!-- ========================================================== -->
+  <rect x="60" y="112" width="1680" height="40" class="phase-band"/>
+  <text x="80" y="139" class="phase-label">MAIN ARCHITECTURE</text>
 
-  <!-- Domain-lock badge beside browser -->
-  <rect x="400" y="118" width="260" height="86" rx="8" class="card-auth"/>
-  <text x="415" y="140" class="box-title">Domain-locked access</text>
-  <text x="415" y="158" class="box-sub">institutional email allowlist</text>
-  <line x1="415" y1="168" x2="645" y2="168" stroke="#e5b680" stroke-width="1"/>
-  <text x="415" y="186" class="box-item">@ohsu.edu, @uoregon.edu</text>
-  <text x="415" y="202" class="box-item-muted">easy to substitute SSO (SAML/OIDC)</text>
+  <!-- Tier labels -->
+  <text x="90" y="224" class="tier-label">CLIENT</text>
+  <text x="90" y="410" class="tier-label">APPLICATION</text>
+  <text x="90" y="624" class="tier-label">DATA</text>
 
-  <!-- Admin allowlist note beside -->
-  <rect x="690" y="118" width="260" height="86" rx="8" class="card"/>
-  <text x="705" y="140" class="box-title">Admin allowlist</text>
-  <text x="705" y="158" class="box-sub">faculty emails stored in database</text>
-  <line x1="705" y1="168" x2="935" y2="168" stroke="#e5e5e5" stroke-width="1"/>
-  <text x="705" y="186" class="box-item">Adjustable without redeployment</text>
-  <text x="705" y="202" class="box-item-muted">non-admins: read + submit only</text>
+  <!-- Tier 1: CLIENT (y=174..274) -->
+  <rect x="200" y="174" width="1480" height="100" rx="8" class="card-main"/>
+  <use href="#i-browser" x="230" y="207" width="34" height="34"/>
+  <text x="280" y="217" class="card-title">Resident or faculty browser</text>
+  <text x="280" y="245" class="card-sub">Any modern device — signs in with institutional email + shared site password</text>
+  <line x1="1370" y1="194" x2="1370" y2="254" class="divider"/>
+  <use href="#i-lock" x="1394" y="207" width="30" height="30"/>
+  <text x="1434" y="220" class="col-hdr">DOMAIN-LOCKED ALLOWLIST</text>
+  <text x="1434" y="246" class="card-body">@ohsu.edu · @uoregon.edu — swappable for SAML / OIDC</text>
 
-  <!-- Vertical connector: client -> application (over HTTPS) -->
-  <path d="M 240 226 L 240 286" class="arrow-bi" marker-end="url(#arrowhead)" marker-start="url(#arrowhead)"/>
-  <text x="248" y="258" class="link-label">HTTPS</text>
-  <text x="248" y="272" class="link-sub">TLS</text>
+  <!-- Arrow CLIENT → APPLICATION -->
+  <path d="M 940 278 L 940 340" class="arrow-line" marker-end="url(#arrow-navy)" marker-start="url(#arrow-navy)"/>
+  <text x="960" y="302" class="arrow-label">HTTPS</text>
+  <text x="960" y="319" class="arrow-sub">TLS in transit</text>
 
-  <!-- Tier divider -->
-  <line x1="20" y1="248" x2="1180" y2="248" class="tier-rule"/>
+  <!-- Tier 2: APPLICATION (y=344..494) -->
+  <!-- Vercel card -->
+  <rect x="200" y="344" width="1050" height="150" rx="8" class="card-main"/>
+  <use href="#i-vercel" x="228" y="374" width="30" height="30"/>
+  <text x="270" y="391" class="card-title">Vercel — Next.js App Router</text>
+  <text x="270" y="418" class="card-sub">TypeScript · Tailwind CSS · shadcn/ui · serverless hosting on edge + Node runtimes</text>
+  <line x1="228" y1="436" x2="1222" y2="436" class="divider"/>
+  <text x="228" y="458" class="col-hdr">SERVER COMPONENTS</text>
+  <text x="228" y="478" class="card-body">Page rendering</text>
+  <text x="560" y="458" class="col-hdr">SERVER ACTIONS</text>
+  <text x="560" y="478" class="card-body">Writes, mutations, uploads</text>
+  <text x="892" y="458" class="col-hdr">STATIC + MEDIA</text>
+  <text x="892" y="478" class="card-body">PDFs via signed URLs</text>
 
-  <!-- ===== Tier 2: Application (Vercel + Next.js) ===== -->
-  <rect x="110" y="286" width="540" height="130" rx="8" class="card-vercel"/>
-  <text x="125" y="310" class="box-title">Vercel · Next.js App Router</text>
-  <text x="125" y="328" class="box-sub">serverless edge + Node runtime · TypeScript · Tailwind + shadcn/ui</text>
-  <line x1="125" y1="340" x2="635" y2="340" stroke="#e5e5e5" stroke-width="1"/>
-  <rect x="130" y="350" width="150" height="50" rx="4" class="sub-box"/>
-  <text x="205" y="372" text-anchor="middle" class="box-item">Server Components</text>
-  <text x="205" y="390" text-anchor="middle" class="box-item-muted">fetch + render</text>
-  <rect x="290" y="350" width="150" height="50" rx="4" class="sub-box"/>
-  <text x="365" y="372" text-anchor="middle" class="box-item">Server Actions</text>
-  <text x="365" y="390" text-anchor="middle" class="box-item-muted">writes + mutations</text>
-  <rect x="450" y="350" width="180" height="50" rx="4" class="sub-box"/>
-  <text x="540" y="372" text-anchor="middle" class="box-item">Static + Media delivery</text>
-  <text x="540" y="390" text-anchor="middle" class="box-item-muted">PDFs via signed URLs</text>
+  <!-- GitHub card -->
+  <rect x="1280" y="344" width="400" height="150" rx="8" class="card-main"/>
+  <use href="#i-github" x="1308" y="374" width="30" height="30"/>
+  <text x="1348" y="391" class="card-title">GitHub</text>
+  <text x="1308" y="418" class="card-sub">MIT-licensed source</text>
+  <line x1="1308" y1="436" x2="1652" y2="436" class="divider"/>
+  <text x="1308" y="458" class="col-hdr">CONTINUOUS DEPLOY</text>
+  <text x="1308" y="478" class="card-body">Fork → connect to Vercel → auto-deploy on push</text>
 
-  <!-- Repo box on right -->
-  <rect x="690" y="286" width="260" height="130" rx="8" class="card"/>
-  <text x="705" y="310" class="box-title">GitHub repository</text>
-  <text x="705" y="328" class="box-sub">open source · MIT license</text>
-  <line x1="705" y1="340" x2="935" y2="340" stroke="#e5e5e5" stroke-width="1"/>
-  <text x="705" y="360" class="box-item">Fork → connect → deploy</text>
-  <text x="705" y="378" class="box-item-muted">Vercel auto-build on push</text>
-  <text x="705" y="400" class="box-item-muted">all config in env variables</text>
-  <!-- arrow repo -> Vercel -->
-  <path d="M 690 350 L 650 350" class="arrow" marker-end="url(#arrowhead)"/>
+  <!-- Arrow GitHub → Vercel -->
+  <path d="M 1280 400 L 1250 400" class="arrow-line" marker-end="url(#arrow-navy)"/>
 
-  <!-- Vertical connector: application -> data -->
-  <path d="M 380 416 L 380 476" class="arrow-bi" marker-end="url(#arrowhead)" marker-start="url(#arrowhead)"/>
-  <text x="392" y="448" class="link-label">Supabase JS client</text>
-  <text x="392" y="462" class="link-sub">service role (server) · anon (browser)</text>
+  <!-- Arrow APPLICATION → DATA -->
+  <path d="M 940 498 L 940 560" class="arrow-line" marker-end="url(#arrow-navy)" marker-start="url(#arrow-navy)"/>
+  <text x="960" y="523" class="arrow-label">Supabase JS client</text>
+  <text x="960" y="540" class="arrow-sub">anon (browser) · service role (server)</text>
 
-  <!-- Tier divider -->
-  <line x1="20" y1="436" x2="1180" y2="436" class="tier-rule"/>
+  <!-- Tier 3: DATA (y=564..702) -->
+  <rect x="200" y="564" width="1480" height="138" rx="8" class="card-main"/>
+  <use href="#i-supabase" x="228" y="592" width="30" height="30"/>
+  <text x="270" y="609" class="card-title">Supabase — managed backend</text>
+  <text x="270" y="636" class="card-sub">PostgreSQL + Auth + object storage on the free tier (≈ 500 MB, more than sufficient for residency-scale use)</text>
+  <rect x="1490" y="594" width="162" height="26" rx="13" class="nophi-badge"/>
+  <text x="1571" y="611" text-anchor="middle" class="nophi-badge-text">NO PHI STORED</text>
+  <line x1="228" y1="654" x2="1652" y2="654" class="divider"/>
+  <text x="228" y="676" class="col-hdr">POSTGRESQL</text>
+  <text x="228" y="694" class="card-body">Sessions · papers · wish list · research ideas · admins</text>
+  <text x="760" y="676" class="col-hdr">AUTH</text>
+  <text x="760" y="694" class="card-body">Session cookies · domain allowlist enforced in code</text>
+  <text x="1224" y="676" class="col-hdr">OBJECT STORAGE</text>
+  <text x="1224" y="694" class="card-body">Journal-club PDFs · signed URLs · admin-only writes</text>
 
-  <!-- ===== Tier 3: Supabase (Data) ===== -->
-  <rect x="110" y="476" width="540" height="180" rx="8" class="card-supabase"/>
-  <text x="125" y="500" class="box-title">Supabase project</text>
-  <text x="125" y="518" class="box-sub">managed Postgres + auth + object storage · free tier</text>
-  <line x1="125" y1="530" x2="635" y2="530" stroke="#b8cfc1" stroke-width="1"/>
-  <rect x="130" y="542" width="160" height="100" rx="4" class="sub-box"/>
-  <text x="210" y="564" text-anchor="middle" class="box-item">PostgreSQL</text>
-  <text x="210" y="582" text-anchor="middle" class="box-item-muted">sessions, papers,</text>
-  <text x="210" y="596" text-anchor="middle" class="box-item-muted">wish list, research</text>
-  <text x="210" y="610" text-anchor="middle" class="box-item-muted">ideas, admins,</text>
-  <text x="210" y="624" text-anchor="middle" class="box-item-muted">teaching case mirror</text>
+  <!-- ========================================================== -->
+  <!-- Section 2: HIPAA-compatible teaching-case capture           -->
+  <!-- ========================================================== -->
+  <rect x="60" y="740" width="1680" height="40" class="phase-band"/>
+  <text x="80" y="767" class="phase-label">OPTIONAL — HIPAA-COMPATIBLE TEACHING-CASE CAPTURE</text>
 
-  <rect x="300" y="542" width="160" height="100" rx="4" class="sub-box"/>
-  <text x="380" y="564" text-anchor="middle" class="box-item">Auth</text>
-  <text x="380" y="582" text-anchor="middle" class="box-item-muted">session cookies</text>
-  <text x="380" y="596" text-anchor="middle" class="box-item-muted">email + password</text>
-  <text x="380" y="610" text-anchor="middle" class="box-item-muted">domain allowlist</text>
-  <text x="380" y="624" text-anchor="middle" class="box-item-muted">enforced in code</text>
+  <!-- PHI zone behind cards 3 & 4 -->
+  <rect x="908" y="808" width="782" height="178" rx="10" class="phi-zone"/>
+  <rect x="908" y="808" width="782" height="26" rx="10" class="phi-zone-banner"/>
+  <path d="M 908 824 L 1690 824" stroke="none" fill="none"/>
+  <text x="1299" y="826" text-anchor="middle" class="phi-label">PHI STORED HERE · INSIDE INSTITUTIONAL BAA</text>
 
-  <rect x="470" y="542" width="160" height="100" rx="4" class="sub-box"/>
-  <text x="550" y="564" text-anchor="middle" class="box-item">Storage</text>
-  <text x="550" y="582" text-anchor="middle" class="box-item-muted">journal-club PDFs</text>
-  <text x="550" y="596" text-anchor="middle" class="box-item-muted">&#8776;250 KB each</text>
-  <text x="550" y="610" text-anchor="middle" class="box-item-muted">signed-URL reads</text>
-  <text x="550" y="624" text-anchor="middle" class="box-item-muted">admin-only writes</text>
+  <!-- Row of 4 cards: y=850..960 -->
+  <!-- Card 1: Case form (browser) -->
+  <rect x="130" y="850" width="340" height="110" rx="8" class="card-main"/>
+  <use href="#i-browser" x="150" y="870" width="28" height="28"/>
+  <text x="190" y="886" class="card-title" style="font-size:18px">Case form in app</text>
+  <text x="150" y="916" class="card-body">Fracture type, side, mechanism,</text>
+  <text x="150" y="934" class="card-body">teaching note entered in the browser.</text>
 
-  <!-- No PHI label on Supabase -->
-  <rect x="500" y="486" width="140" height="20" rx="10" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
-  <text x="570" y="500" text-anchor="middle" class="nophi-label">NO PHI STORED</text>
+  <!-- Card 2: Server Action (Vercel) -->
+  <rect x="530" y="850" width="340" height="110" rx="8" class="card-main"/>
+  <use href="#i-vercel" x="550" y="872" width="24" height="24"/>
+  <text x="586" y="886" class="card-title" style="font-size:18px">Server Action (Vercel)</text>
+  <text x="550" y="916" class="card-body">Splits identifying and</text>
+  <text x="550" y="934" class="card-body">non-identifying fields before writing.</text>
 
-  <!-- ===== Inset: HIPAA-compatible teaching case capture ===== -->
-  <rect x="690" y="476" width="490" height="320" rx="10" class="inset-frame"/>
-  <rect x="690" y="476" width="160" height="22" rx="0" fill="#fef3c7"/>
-  <text x="704" y="492" class="inset-title">Inset:</text>
-  <text x="745" y="492" class="box-title" fill="#92400e">HIPAA-compatible capture</text>
-  <text x="704" y="516" class="inset-sub">optional teaching-case flow · stays inside institutional BAA</text>
+  <!-- Card 3: Power Automate -->
+  <rect x="930" y="850" width="340" height="110" rx="8" class="card-main"/>
+  <use href="#i-powerautomate" x="950" y="870" width="28" height="28"/>
+  <text x="990" y="886" class="card-title" style="font-size:18px">Power Automate</text>
+  <text x="950" y="916" class="card-body">HTTP-trigger flow in the</text>
+  <text x="950" y="934" class="card-body">institutional tenant appends a row.</text>
 
-  <!-- Step 1: Form in browser -->
-  <rect x="710" y="530" width="200" height="56" rx="6" class="sub-box"/>
-  <text x="724" y="550" class="inset-step-num">1.</text>
-  <text x="744" y="550" class="inset-step">Case form in app</text>
-  <text x="724" y="568" class="box-item-muted">fracture type, side,</text>
-  <text x="724" y="582" class="box-item-muted">mechanism, note</text>
+  <!-- Card 4: OneDrive workbook -->
+  <rect x="1330" y="850" width="340" height="110" rx="8" class="card-main"/>
+  <use href="#i-onedrive" x="1350" y="870" width="28" height="28"/>
+  <text x="1390" y="886" class="card-title" style="font-size:18px">OneDrive workbook</text>
+  <text x="1350" y="916" class="card-body">Teaching_Case_Repository.xlsx —</text>
+  <text x="1350" y="934" class="card-body">stored only in institutional OneDrive.</text>
 
-  <!-- Step 2: Server Action -->
-  <rect x="960" y="530" width="200" height="56" rx="6" class="sub-box"/>
-  <text x="974" y="550" class="inset-step-num">2.</text>
-  <text x="994" y="550" class="inset-step">Server Action (Vercel)</text>
-  <text x="974" y="568" class="box-item-muted">splits identifying vs.</text>
-  <text x="974" y="582" class="box-item-muted">non-identifying fields</text>
+  <!-- Arrows in the top row -->
+  <path d="M 470 905 L 528 905" class="arrow-line" marker-end="url(#arrow-navy)"/>
+  <path d="M 870 905 L 928 905" class="arrow-line" marker-end="url(#arrow-navy)"/>
+  <path d="M 1270 905 L 1328 905" class="arrow-line" marker-end="url(#arrow-navy)"/>
 
-  <path d="M 910 558 L 960 558" class="arrow-inset" marker-end="url(#arrowhead-orange)"/>
+  <!-- No-PHI mirror path: arrow from Card 2 down, Card 5 centered under Card 2 -->
+  <path d="M 700 962 L 700 1016" class="nophi-arrow" marker-end="url(#arrow-nophi)"/>
+  <text x="716" y="984" class="nophi-label">NO-PHI MIRROR</text>
+  <text x="716" y="1002" class="arrow-sub">non-identifying fields only</text>
 
-  <!-- Phi zone frame -->
-  <rect x="700" y="604" width="470" height="122" rx="6" class="phi-zone"/>
-  <rect x="710" y="600" width="140" height="16" rx="8" fill="#fef3c7" stroke="#e5b680" stroke-width="1"/>
-  <text x="780" y="612" text-anchor="middle" class="phi-label">PHI PATH · INSIDE BAA</text>
+  <!-- Card 5: Supabase mirror (no PHI) -->
+  <rect x="400" y="1018" width="600" height="82" rx="8" class="card-main"/>
+  <use href="#i-supabase" x="424" y="1040" width="26" height="26"/>
+  <text x="462" y="1055" class="card-title" style="font-size:18px">Supabase — non-identifying mirror</text>
+  <text x="424" y="1082" class="card-body">Fracture type · timestamp · submitter role — for counts and listing only; never identifiers.</text>
+  <rect x="866" y="1040" width="112" height="22" rx="11" class="nophi-badge"/>
+  <text x="922" y="1055" text-anchor="middle" class="nophi-badge-text">NO PHI</text>
 
-  <!-- Step 3: Power Automate -->
-  <rect x="710" y="626" width="210" height="88" rx="6" class="sub-box"/>
-  <text x="724" y="646" class="inset-step-num">3.</text>
-  <text x="744" y="646" class="inset-step">Microsoft Power Automate</text>
-  <text x="724" y="664" class="box-item-muted">HTTP webhook trigger</text>
-  <text x="724" y="680" class="box-item-muted">add-row to Excel table</text>
-  <text x="724" y="696" class="box-item-muted">institutional tenant</text>
-  <text x="724" y="710" class="box-item-muted">under existing BAA</text>
-
-  <!-- Step 4: OneDrive workbook -->
-  <rect x="960" y="626" width="200" height="88" rx="6" class="sub-box"/>
-  <text x="974" y="646" class="inset-step-num">4.</text>
-  <text x="994" y="646" class="inset-step">OneDrive workbook</text>
-  <text x="974" y="664" class="box-item-muted">Teaching_Case_</text>
-  <text x="974" y="680" class="box-item-muted">Repository.xlsx</text>
-  <text x="974" y="696" class="box-item-muted">faculty-accessed</text>
-  <text x="974" y="710" class="box-item-muted">institutional OneDrive</text>
-
-  <path d="M 920 670 L 960 670" class="arrow-inset" marker-end="url(#arrowhead-orange)"/>
-  <path d="M 810 586 L 810 626" class="arrow-inset" marker-end="url(#arrowhead-orange)"/>
-
-  <!-- No-PHI return arrow to Supabase mirror -->
-  <rect x="710" y="740" width="450" height="46" rx="6" class="nophi-zone"/>
-  <text x="724" y="758" class="nophi-label">NO-PHI MIRROR</text>
-  <text x="724" y="776" class="box-item-muted">fracture type + timestamp + submitter role → Supabase (for counts/listing only)</text>
-
-  <!-- Non-PHI mirror arrow from Server Action down to Supabase -->
-  <path d="M 1060 586 C 1060 620, 1060 720, 1060 740" class="arrow-nophi" marker-end="url(#arrowhead-green)"/>
-
-  <!-- Connector: non-PHI path leaves inset back to main DB -->
-  <path d="M 710 762 C 670 762, 640 680, 640 600" class="arrow-nophi" marker-end="url(#arrowhead-green)"/>
-
-  <!-- Footer notes -->
-  <text x="30" y="810" class="note">All three vendors (Vercel, Supabase, GitHub) operate on free tiers sufficient for residency-scale use. Each layer is substitutable without rewriting the others.</text>
+  <!-- Footer note -->
+  <text x="900" y="1152" text-anchor="middle" class="footer-note">All vendors operate on free tiers sufficient for residency-scale use. Each layer is substitutable without rewriting the others.</text>
 </svg>

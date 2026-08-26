@@ -40,11 +40,11 @@ export default async function Home() {
       <SiteHeader />
       <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:py-8">
         <div className="grid gap-6 lg:grid-cols-3">
-          <div className="space-y-6 lg:col-span-2">
+          <div className="min-w-0 space-y-6 lg:col-span-2">
             <UpcomingCalendar sessions={upcomingSessions} isAdmin={admin} />
             <TopicWishList items={wishList} isAdmin={admin} />
           </div>
-          <div className="space-y-6">
+          <div className="min-w-0 space-y-6">
             <PastBreakfastClubs sessions={pastSessions} isAdmin={admin} />
             <TeachingCaseRepository />
             <ResearchIdeas items={researchIdeas} isAdmin={admin} />

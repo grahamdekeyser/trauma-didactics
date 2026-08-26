@@ -80,7 +80,11 @@ export async function fetchPastBreakfastClubs(): Promise<Session[]> {
     .lt("date", today())
     .order("date", { ascending: false });
   if (error) throw error;
-  return (data as unknown as SessionRow[]).map(toSession);
+  // Past breakfast clubs with neither a topic nor any papers carry no
+  // information and render as blank "—" rows, so drop them from the archive.
+  return (data as unknown as SessionRow[])
+    .map(toSession)
+    .filter((s) => s.topic !== null || s.papers.length > 0);
 }
 
 export type WishListWithVotes = WishListItem & {

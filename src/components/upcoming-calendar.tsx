@@ -86,15 +86,15 @@ export function UpcomingCalendar({
                   <div
                     key={`${type}-${date.toISOString()}`}
                     className={cn(
-                      "flex flex-col gap-2 py-2.5 pl-3 -ml-3",
+                      "flex flex-col gap-1.5 py-2.5 pl-3 -ml-3",
                       "border-b border-border/50 last:border-0",
                       isCancelled
                         ? "border-l-[3px] border-l-border"
                         : TYPE_BORDER_CLASS[type],
                     )}
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="flex min-w-[72px] shrink-0 items-center gap-1.5 font-mono text-sm tabular-nums text-muted-foreground">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 sm:flex-nowrap sm:gap-4">
+                      <div className="flex shrink-0 items-center gap-1.5 font-mono text-sm tabular-nums text-muted-foreground sm:min-w-[72px]">
                         {format(date, "EEE M/d")}
                         {isToday && (
                           <Badge variant="outline" className="text-[10px]">
@@ -105,14 +105,14 @@ export function UpcomingCalendar({
                       {!hideTypeBadge && (
                         <span
                           className={cn(
-                            "w-28 shrink-0 text-[11px] font-semibold uppercase tracking-wider",
+                            "shrink-0 text-[11px] font-semibold uppercase tracking-wider sm:w-28",
                             TYPE_LABEL_CLASS[type],
                           )}
                         >
                           {SESSION_TYPE_LABEL[type]}
                         </span>
                       )}
-                      <div className="flex-1 text-sm">
+                      <div className="order-last w-full min-w-0 flex-1 text-sm sm:order-none sm:w-auto">
                         <span
                           className={
                             isCancelled || !session?.topic
@@ -129,7 +129,7 @@ export function UpcomingCalendar({
                           </span>
                         )}
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="ml-auto flex shrink-0 items-center gap-2 sm:ml-0">
                         {!isCancelled && webexUrl && (
                           <a
                             href={webexUrl}
@@ -150,14 +150,14 @@ export function UpcomingCalendar({
                       </div>
                     </div>
                     {!isCancelled && papers.length > 0 && (
-                      <ul className="space-y-1 pl-28 text-xs text-muted-foreground">
+                      <ul className="space-y-1 pl-1 text-xs text-muted-foreground sm:pl-28">
                         {papers.map((paper) => (
                           <li
                             key={paper.id}
-                            className="flex items-start gap-2"
+                            className="flex flex-wrap items-start gap-x-2 gap-y-1 sm:flex-nowrap"
                           >
                             <FileText className="mt-0.5 h-3 w-3 shrink-0" />
-                            <span className="flex-1">
+                            <span className="min-w-0 flex-1">
                               {paper.title}
                               {(() => {
                                 const short = formatShortCitation(
@@ -171,7 +171,7 @@ export function UpcomingCalendar({
                                 ) : null;
                               })()}
                             </span>
-                            <div className="flex shrink-0 gap-2">
+                            <div className="ml-5 flex shrink-0 gap-3 sm:ml-0 sm:gap-2">
                               {paper.pubmedUrl && (
                                 <a
                                   href={paper.pubmedUrl}
